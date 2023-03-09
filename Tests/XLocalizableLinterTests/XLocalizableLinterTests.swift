@@ -3,9 +3,33 @@ import XCTest
 
 final class XLocalizableLinterTests: XCTestCase {
     func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct
-        // results.
-        XCTAssertEqual(XLocalizableLinter().text, "Hello, World!")
+        let filePath = URL(string: #file)!
+        let projectPath = "\(filePath.deletingLastPathComponent().deletingLastPathComponent().deletingLastPathComponent())/example/example.xcodeproj"
+
+        let unusedKeys = try findUnusedLocalizableKeys(
+            projectPath: projectPath,
+            supportedLanguages: ["ja"]
+        )
+        XCTAssertTrue(unusedKeys.isEmpty)
+    }
+
+    func testExampleHasUnusedKey() throws {
+        let filePath = URL(string: #file)!
+        let projectPath = "\(filePath.deletingLastPathComponent().deletingLastPathComponent().deletingLastPathComponent())/exampleHasUnusedKey/exampleHasUnusedKey.xcodeproj"
+
+        let unusedKeys = try findUnusedLocalizableKeys(
+            projectPath: projectPath,
+            supportedLanguages: ["ja"]
+        )
+        XCTAssertEqual(unusedKeys.sorted(), [
+            "Hello, world!",
+            "NSLocalizedString",
+            "interpolation: int %lld",
+            "interpolation: double %lf",
+            "interpolation: str %@",
+            "interpolation: date %@",
+            "multi\n \"line\"\n  text",
+            "localizedStringKey",
+        ].sorted())
     }
 }

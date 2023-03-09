@@ -1,0 +1,27 @@
+/* Comments may include some character such as ", =, /*, // */
+"\"Keys may include double quote and equals(==) and backslash(\\)\"\"" = "\"キーはダブルコーテーションやイコール(=)やバックスラッシュ(\\\\)を含むことがある\"";
+
+/* No comment provided by engineer. */
+"Hello, world!" = "こんにちは、世界！";
+
+/* No comment provided by engineer. */
+"interpolation: date %@" = "interpolation: 日付%@";
+
+/* No comment provided by engineer. */
+"interpolation: double %lf" = "interpolation: 浮動小数点 %lf";
+
+/* No comment provided by engineer. */
+"interpolation: int %lld" = "interpolation: 数値 %lld";
+
+/* No comment provided by engineer. */
+"interpolation: str %@" = "interpolation: 文字列 %@";
+
+/* No comment provided by engineer. */
+"localizedStringKey" = "ローカライズドストリングキー";
+
+/* No comment provided by engineer. */
+"multi\n \"line\"\n  text" = "複数\n \"行\"の\n  テキスト";
+
+/* This is from NSLocalizedString */
+"NSLocalizedString" = "エヌエスローカライズドストリング";
+
