@@ -6,6 +6,9 @@ import PackageDescription
 let package = Package(
     name: "XLocalizableLinter",
     platforms: [.macOS(.v11)],
+    products: [
+        .executable(name: "xlocalizablelint", targets: ["XLocalizableLinter"]),
+    ],
     dependencies: [
         // Dependencies declare other packages that this package depends on.
         // .package(url: /* package url */, from: "1.0.0"),
