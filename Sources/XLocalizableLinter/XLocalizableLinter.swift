@@ -52,7 +52,7 @@ func getSupportedLanguages(pbxproj: String) -> [String] {
 }
 
 func findUnusedLocalizableKeys(projectPath: String, supportedLanguages: [String]) throws -> [String] {
-    let tmpDir = "tmp"
+    let tmpDir = FileManager.default.temporaryDirectory.appendingPathComponent("XLocalizableLinter").path
     defer {
         try? FileManager.default.removeItem(atPath: tmpDir)
     }
