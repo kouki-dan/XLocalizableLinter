@@ -10,11 +10,12 @@ struct XLocalizableLinter: ParsableCommand {
     var projectPath: String
 
     mutating func run() throws {
-        let pbxproj = try String(contentsOfFile: projectPath + "/project.pbxproj", encoding: .utf8)
+        let projectAbsolutePath = "\(FileManager.default.currentDirectoryPath)/\(projectPath)"
+        let pbxproj = try String(contentsOfFile: projectAbsolutePath + "/project.pbxproj", encoding: .utf8)
 
         let supportedLanguages = getSupportedLanguages(pbxproj: pbxproj)
 
-        let unusedKeys = try findUnusedLocalizableKeys(projectPath: projectPath, supportedLanguages: supportedLanguages)
+        let unusedKeys = try findUnusedLocalizableKeys(projectPath: projectAbsolutePath, supportedLanguages: supportedLanguages)
 
         if unusedKeys.isEmpty {
             print("All keys are used in a .strings file")
