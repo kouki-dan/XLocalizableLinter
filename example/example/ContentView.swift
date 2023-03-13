@@ -13,7 +13,7 @@ struct ContentView: View {
             Image(systemName: "globe")
                 .imageScale(.large)
                 .foregroundColor(.accentColor)
-            Text("Hello, world!")
+            Text("Hello, world?")
             Text(verbatim: NSLocalizedString("NSLocalizedString", comment: "This is from NSLocalizedString"))
             Text(
                 "\"Keys may include double quote and equals(==) and backslash(\\)\"\"",
